@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 2</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+</head>
+<body>
+    <a-scene background="color: blue">
+        <a-assets>
+            <img id="lugar" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+            <img id="suelo" src="assets/image/tile.jpg">
+            <img id="normal" src="assets/image/normal.png">
+            <item id="statue" src="assets/model/statue.obj"></item>
+          </a-assets>
+
+        <a-light position="-5 5 -5" type="point" color="blue" intensity="4" distance="15" delay="5"></a-light>
+        <a-light position="5 5 5" type="point" color="violet" intensity="4" distance="15" delay="5"></a-light>
+
+        <a-camera position="-5 1 5" rotation="0 0 0"></a-camera>
+        <a-text position="-1.8 5 -1" rotation="0 -60 45" scale="3 3 3" color="white" value="Uribe paraco" font="mozillavr" 
+        animation="property: rotation; to: 0 -420 45; loop: true; dur: 10000"></a-text>
+
+        <a-entity position="0 -1 0" scale="0.06 0.06 0.06" rotation="-90 135 -45" 
+        animation="property: rotation; to: -90 -225 -45; loop: true; dur: 10000" obj-model="obj: #statue"></a-entity>
+
+
+        <a-sky src="#lugar"></a-sky>
+
+        <a-plane  rotation="-90 0 0" position="0 -1 0" width="20" height="20" repeat="2 2" material="src:#suelo; normalMap:#normal; normalScale:5; normalTextureRepeat:10 10"></a-plane>
+        
+    </a-scene>
+</body>
+</html>
